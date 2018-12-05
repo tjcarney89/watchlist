@@ -27,4 +27,29 @@ class TVAPIClient {
         }
         
     }
+    
+    class func fetchShowDetails(showID: Int, completion: @escaping (TVShow) -> ()) {
+        let url = baseURL + "/tv/\(showID)?api_key=" + APIKey
+        
+        MasterAPIClient.plainRequest(url: url, method: .get, parameters: nil) { (json) in
+            let show = TVShow(json: json)
+            completion(show)
+        }
+    }
+    
+    class func fetchPopularShows(page: Int, completion: @escaping ([SearchResult]) -> ()) {
+        let url = baseURL + "/tv/popular?api_key=" + APIKey + "&page=\(page)"
+        
+        MasterAPIClient.plainRequest(url: url, method: .get, parameters: nil) { (json) in
+            print(json)
+            let showsArray = json["results"] as? [[String:Any]] ?? [[:]]
+            var resultsArray: [SearchResult] = []
+            for show in showsArray {
+                let newResult = SearchResult(params: show)
+                resultsArray.append(newResult)
+            }
+            completion(resultsArray)
+        }
+    }
+    
 }

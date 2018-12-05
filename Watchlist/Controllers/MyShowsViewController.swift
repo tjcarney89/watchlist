@@ -27,9 +27,9 @@ class MyShowsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    var currentShows: [TVShow] = [TVShow(name: "Walking Dead"), TVShow(name: "American Horror Story"), TVShow(name: "Trial and Error")]
-    var upcomingShows: [TVShow] = [TVShow(name: "Game of Thrones"), TVShow(name: "Veep")]
-    var completedShows: [TVShow] = [TVShow(name: "Sherlock"), TVShow(name: "Fargo"), TVShow(name: "Bodyguard")]
+   var currentShows: [TVShow] = []//[TVShow(name: "Walking Dead"), TVShow(name: "American Horror Story"), TVShow(name: "Trial and Error")]
+    var upcomingShows: [TVShow] = []//[TVShow(name: "Game of Thrones"), TVShow(name: "Veep")]
+    var completedShows: [TVShow] = []//[TVShow(name: "Sherlock"), TVShow(name: "Fargo"), TVShow(name: "Bodyguard")]
     
     var draggedFromTableView: UITableView?
     var draggedItemIndexPath: IndexPath?
@@ -61,7 +61,9 @@ class MyShowsViewController: UIViewController, UITableViewDelegate, UITableViewD
         myShowsSegmentedControl.selectedSegmentIndex = 1
         myShowsScrollView.contentOffset = currentPoint
         
-        
+        TVAPIClient.fetchShowDetails(showID: 1399) { (show) in
+            print(show)
+        }
         
     }
     

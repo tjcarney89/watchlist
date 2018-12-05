@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cpY-jD-rel">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Gp-ZE-88N">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -311,7 +311,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kaF-jB-2VO">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="gDq-ay-aaZ">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="gDq-ay-aaZ">
                             <rect key="frame" x="65" y="7" width="245" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -428,7 +428,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2380" y="46.326836581709152"/>
+            <point key="canvasLocation" x="2426" y="-320"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ipg-7j-rMH">
@@ -447,6 +447,92 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bn6-I7-Ldp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="669.60000000000002" y="29.23538230884558"/>
+        </scene>
+        <!--Popular Shows View Controller-->
+        <scene sceneID="irq-wH-ske">
+            <objects>
+                <viewController id="5Gp-ZE-88N" customClass="PopularShowsViewController" customModule="Watchlist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2oa-17-jTb"/>
+                        <viewControllerLayoutGuide type="bottom" id="aPg-6F-bYw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9nM-dI-Gcb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pGq-2O-7wS">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="popularShowCell" rowHeight="106" id="KrJ-Dm-KK7" customClass="SearchResultTableViewCell" customModule="Watchlist" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="106"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KrJ-Dm-KK7" id="Ef8-Bg-enh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="105.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zjg-QX-lgc">
+                                                    <rect key="frame" x="8" y="13" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="0Kw-uy-ZUg"/>
+                                                        <constraint firstAttribute="width" secondItem="zjg-QX-lgc" secondAttribute="height" multiplier="1:1" id="qVD-8I-i2W"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuX-Ob-Lpk">
+                                                    <rect key="frame" x="96" y="42.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GuX-Ob-Lpk" firstAttribute="leading" secondItem="zjg-QX-lgc" secondAttribute="trailing" constant="8" id="GDV-k9-W8n"/>
+                                                <constraint firstItem="zjg-QX-lgc" firstAttribute="centerY" secondItem="Ef8-Bg-enh" secondAttribute="centerY" id="QjZ-D3-hGf"/>
+                                                <constraint firstItem="zjg-QX-lgc" firstAttribute="leading" secondItem="Ef8-Bg-enh" secondAttribute="leading" constant="8" id="fSZ-Fb-2bV"/>
+                                                <constraint firstItem="GuX-Ob-Lpk" firstAttribute="centerY" secondItem="Ef8-Bg-enh" secondAttribute="centerY" id="wQV-L4-nD4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="GuX-Ob-Lpk" id="p8u-Kr-jUs"/>
+                                            <outlet property="searchResultImageView" destination="zjg-QX-lgc" id="u3y-aX-6Tu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pGq-2O-7wS" secondAttribute="trailing" id="J7j-Zl-iOt"/>
+                            <constraint firstItem="pGq-2O-7wS" firstAttribute="top" secondItem="2oa-17-jTb" secondAttribute="bottom" id="byX-6g-mOy"/>
+                            <constraint firstItem="aPg-6F-bYw" firstAttribute="top" secondItem="pGq-2O-7wS" secondAttribute="bottom" id="cdW-DC-RP1"/>
+                            <constraint firstItem="pGq-2O-7wS" firstAttribute="centerX" secondItem="9nM-dI-Gcb" secondAttribute="centerX" id="hf7-vc-tu0"/>
+                            <constraint firstItem="pGq-2O-7wS" firstAttribute="leading" secondItem="9nM-dI-Gcb" secondAttribute="leading" id="zSr-IK-yrc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="popularShowsTableView" destination="pGq-2O-7wS" id="z8E-un-6RR"/>
+                        <outlet property="searchDisplayController" destination="gwK-Mc-cTK" id="DKL-qK-Usd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zlx-SX-1Yf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="unb-Qv-M72">
+                    <connections>
+                        <outlet property="delegate" destination="5Gp-ZE-88N" id="8jS-vH-Hsa"/>
+                        <outlet property="searchContentsController" destination="5Gp-ZE-88N" id="tuN-KL-1NY"/>
+                        <outlet property="searchResultsDataSource" destination="5Gp-ZE-88N" id="n9p-p2-EbN"/>
+                        <outlet property="searchResultsDelegate" destination="5Gp-ZE-88N" id="jPO-Lz-n59"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="nvi-zQ-hxT">
+                    <connections>
+                        <outlet property="delegate" destination="5Gp-ZE-88N" id="CiX-yN-4z1"/>
+                        <outlet property="searchContentsController" destination="5Gp-ZE-88N" id="8E3-wp-09O"/>
+                        <outlet property="searchResultsDataSource" destination="5Gp-ZE-88N" id="eEJ-2e-z9v"/>
+                        <outlet property="searchResultsDelegate" destination="5Gp-ZE-88N" id="mEZ-Pt-zen"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2425" y="372"/>
         </scene>
     </scenes>
 </document>

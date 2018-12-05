@@ -11,6 +11,43 @@ import MobileCoreServices
 
 final class TVShow: NSObject, NSItemProviderWriting, NSItemProviderReading, Codable {
     
+    let name: String
+    let id: Int
+    let overview: String
+    let lastEpisode: Episode
+    let nextEpisode: Episode
+    let networks: [String]
+    let status: String
+    
+    
+    init(name: String, id: Int, overview: String, lastEpisode: Episode, nextEpisode: Episode, networks: [String], status: String) {
+        self.name = name
+        self.id = id
+        self.overview = overview
+        self.lastEpisode = lastEpisode
+        self.nextEpisode = nextEpisode
+        self.networks = networks
+        self.status = status
+    }
+    
+    init(json: [String:Any]) {
+        self.name = json["name"] as? String ?? ""
+        self.id = json["id"] as? Int ?? 0
+        self.overview = json["overview"] as? String ?? ""
+        let lastEpisodeDict = json["last_episode_to_air"] as! [String:Any]
+        let nextEpisodeDict = json["next_episode_to_air"] as! [String:Any]
+        self.lastEpisode = Episode(params: lastEpisodeDict)
+        self.nextEpisode = Episode(params: nextEpisodeDict)
+        let networkArray = json["networks"] as? [[String:Any]] ?? [[:]]
+        var networkNames: [String] = []
+        for network in networkArray {
+            let newNetwork = network["name"] as? String ?? ""
+            networkNames.append(newNetwork)
+        }
+        self.networks = networkNames
+        self.status = json["status"] as? String ?? ""
+    }
+    
     static var writableTypeIdentifiersForItemProvider: [String] {
         //We know that we want to represent our object as a data type, so we'll specify that
         return [(kUTTypeData as String)]
@@ -53,11 +90,5 @@ final class TVShow: NSObject, NSItemProviderWriting, NSItemProviderReading, Coda
     
     
     
-    
-    let name: String
-    
-    init(name: String) {
-        self.name = name
-    }
     
 }
