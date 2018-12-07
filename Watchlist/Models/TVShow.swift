@@ -18,9 +18,10 @@ final class TVShow: NSObject, NSItemProviderWriting, NSItemProviderReading, Coda
     let nextEpisode: Episode
     let networks: [String]
     let status: String
+    let imagePath: String
     
     
-    init(name: String, id: Int, overview: String, lastEpisode: Episode, nextEpisode: Episode, networks: [String], status: String) {
+    init(name: String, id: Int, overview: String, lastEpisode: Episode, nextEpisode: Episode, networks: [String], status: String, imagePath: String) {
         self.name = name
         self.id = id
         self.overview = overview
@@ -28,14 +29,15 @@ final class TVShow: NSObject, NSItemProviderWriting, NSItemProviderReading, Coda
         self.nextEpisode = nextEpisode
         self.networks = networks
         self.status = status
+        self.imagePath = imagePath
     }
     
     init(json: [String:Any]) {
         self.name = json["name"] as? String ?? ""
         self.id = json["id"] as? Int ?? 0
         self.overview = json["overview"] as? String ?? ""
-        let lastEpisodeDict = json["last_episode_to_air"] as! [String:Any]
-        let nextEpisodeDict = json["next_episode_to_air"] as! [String:Any]
+        let lastEpisodeDict = json["last_episode_to_air"] as? [String:Any] ?? [:]
+        let nextEpisodeDict = json["next_episode_to_air"] as? [String:Any] ?? [:]
         self.lastEpisode = Episode(params: lastEpisodeDict)
         self.nextEpisode = Episode(params: nextEpisodeDict)
         let networkArray = json["networks"] as? [[String:Any]] ?? [[:]]
@@ -46,6 +48,7 @@ final class TVShow: NSObject, NSItemProviderWriting, NSItemProviderReading, Coda
         }
         self.networks = networkNames
         self.status = json["status"] as? String ?? ""
+        self.imagePath = json["backdrop_path"] as? String ?? ""
     }
     
     static var writableTypeIdentifiersForItemProvider: [String] {

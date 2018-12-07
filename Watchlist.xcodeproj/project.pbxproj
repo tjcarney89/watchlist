@@ -25,6 +25,9 @@
 		F092588B21B1B13300E1F139 /* API Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092588A21B1B13300E1F139 /* API Key.swift */; };
 		F092588D21B5ACC400E1F139 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092588C21B5ACC400E1F139 /* Episode.swift */; };
 		F092588F21B7004E00E1F139 /* PopularShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092588E21B7004E00E1F139 /* PopularShowsViewController.swift */; };
+		F092589121B99F7C00E1F139 /* ShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092589021B99F7C00E1F139 /* ShowDetailViewController.swift */; };
+		F092589321BAFE4C00E1F139 /* FindShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092589221BAFE4C00E1F139 /* FindShowViewController.swift */; };
+		F092589521BAFF5100E1F139 /* TopRatedShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092589421BAFF5100E1F139 /* TopRatedShowsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		F092588A21B1B13300E1F139 /* API Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API Key.swift"; sourceTree = "<group>"; };
 		F092588C21B5ACC400E1F139 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		F092588E21B7004E00E1F139 /* PopularShowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularShowsViewController.swift; sourceTree = "<group>"; };
+		F092589021B99F7C00E1F139 /* ShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewController.swift; sourceTree = "<group>"; };
+		F092589221BAFE4C00E1F139 /* FindShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindShowViewController.swift; sourceTree = "<group>"; };
+		F092589421BAFF5100E1F139 /* TopRatedShowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedShowsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +148,11 @@
 			isa = PBXGroup;
 			children = (
 				F07769A4219C9E63005DB5CD /* MyShowsViewController.swift */,
-				F0018F5121A5DC2D002B44ED /* SearchResultsViewController.swift */,
+				F092589221BAFE4C00E1F139 /* FindShowViewController.swift */,
 				F092588E21B7004E00E1F139 /* PopularShowsViewController.swift */,
+				F092589421BAFF5100E1F139 /* TopRatedShowsViewController.swift */,
+				F0018F5121A5DC2D002B44ED /* SearchResultsViewController.swift */,
+				F092589021B99F7C00E1F139 /* ShowDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -281,16 +290,19 @@
 				F07769AB219C9E64005DB5CD /* Watchlist.xcdatamodeld in Sources */,
 				F0018F5221A5DC2D002B44ED /* SearchResultsViewController.swift in Sources */,
 				F07769A5219C9E63005DB5CD /* MyShowsViewController.swift in Sources */,
+				F092589121B99F7C00E1F139 /* ShowDetailViewController.swift in Sources */,
 				F092588B21B1B13300E1F139 /* API Key.swift in Sources */,
 				F07769A3219C9E63005DB5CD /* AppDelegate.swift in Sources */,
 				F0018F4A21A48C62002B44ED /* AppConstants.swift in Sources */,
 				F0018F5021A5D93E002B44ED /* SearchResult.swift in Sources */,
+				F092589321BAFE4C00E1F139 /* FindShowViewController.swift in Sources */,
 				F092588D21B5ACC400E1F139 /* Episode.swift in Sources */,
 				F092588921AF18F700E1F139 /* MyShowTableViewCell.swift in Sources */,
 				F0018F4C21A4EDF4002B44ED /* MasterAPIClient.swift in Sources */,
 				F092588F21B7004E00E1F139 /* PopularShowsViewController.swift in Sources */,
 				F0018F4E21A4F08C002B44ED /* TVAPIClient.swift in Sources */,
 				F092588421ADC37400E1F139 /* TVShow.swift in Sources */,
+				F092589521BAFF5100E1F139 /* TopRatedShowsViewController.swift in Sources */,
 				F0018F5421A5DCAE002B44ED /* SearchResultTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

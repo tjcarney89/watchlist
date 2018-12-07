@@ -1,36 +1,36 @@
 //
-//  PopularShowsViewController.swift
+//  TopRatedShowsViewController.swift
 //  Watchlist
 //
-//  Created by TJ Carney on 12/4/18.
+//  Created by TJ Carney on 12/7/18.
 //  Copyright © 2018 TJ Carney. All rights reserved.
 //
 
 import UIKit
 
-class PopularShowsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TopRatedShowsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var popularShowsTableView: UITableView!
+    @IBOutlet weak var topRatedShowsTableView: UITableView!
     
-    var popularShows: [SearchResult] = []
+    var topRatedShows: [SearchResult] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        popularShowsTableView.delegate = self
-        popularShowsTableView.dataSource = self
+        topRatedShowsTableView.delegate = self
+        topRatedShowsTableView.dataSource = self
         
-        TVAPIClient.fetchPopularShows(page: 1) { (shows) in
-            self.popularShows = shows
+        TVAPIClient.fetchTopRatedShows(page: 1) { (shows) in
+            self.topRatedShows = shows
             DispatchQueue.main.async {
-                self.popularShowsTableView.reloadData()
+                self.topRatedShowsTableView.reloadData()
             }
         }
-
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return popularShows.count
+        return topRatedShows.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -38,20 +38,20 @@ class PopularShowsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = popularShowsTableView.dequeueReusableCell(withIdentifier: "popularShowCell", for: indexPath) as! SearchResultTableViewCell
-        cell.nameLabel.text = popularShows[indexPath.row].title
-        let url = URL(string: baseImageURL + popularShows[indexPath.row].imagePath)
+        let cell = topRatedShowsTableView.dequeueReusableCell(withIdentifier: "topRatedShowCell", for: indexPath) as! SearchResultTableViewCell
+        cell.nameLabel.text = topRatedShows[indexPath.row].title
+        let url = URL(string: baseImageURL + topRatedShows[indexPath.row].imagePath)
         cell.searchResultImageView.kf.setImage(with: url)
         return cell
     }
     
-
+    
     
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailVC = segue.destination as? ShowDetailViewController {
-            let show = popularShows[(popularShowsTableView.indexPathForSelectedRow?.row)!]
+            let show = topRatedShows[(topRatedShowsTableView.indexPathForSelectedRow?.row)!]
             TVAPIClient.fetchShowDetails(showID: show.id) { (show) in
                 detailVC.show = show
             }
@@ -59,5 +59,6 @@ class PopularShowsViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
-
+    
 }
+

@@ -52,4 +52,19 @@ class TVAPIClient {
         }
     }
     
+    class func fetchTopRatedShows(page: Int, completion: @escaping ([SearchResult]) -> ()) {
+        let url = baseURL + "/tv/top_rated?api_key=" + APIKey + "&page=\(page)"
+        
+        MasterAPIClient.plainRequest(url: url, method: .get, parameters: nil) { (json) in
+            print(json)
+            let showsArray = json["results"] as? [[String:Any]] ?? [[:]]
+            var resultsArray: [SearchResult] = []
+            for show in showsArray {
+                let newResult = SearchResult(params: show)
+                resultsArray.append(newResult)
+            }
+            completion(resultsArray)
+        }
+    }
+    
 }
