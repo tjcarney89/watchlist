@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--My Shows View Controller-->
+        <!--Watchlist View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MyShowsViewController" customModule="Watchlist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WatchlistViewController" customModule="Watchlist" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lx6-lF-b3J"/>
                         <viewControllerLayoutGuide type="bottom" id="u79-99-Obn"/>
@@ -320,16 +320,16 @@
                                 <segment title="Completed"/>
                             </segments>
                             <connections>
-                                <action selector="valueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="gQq-BB-Xe1"/>
+                                <action selector="valueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="kgi-DG-ShY"/>
                             </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
                         <outlet property="completedShowsTableView" destination="V7y-9o-YJ8" id="ciw-js-7pa"/>
                         <outlet property="currentShowsTableView" destination="5YJ-6X-uFk" id="uP9-f3-58a"/>
-                        <outlet property="myShowsScrollView" destination="egf-KJ-seS" id="xop-gE-QrP"/>
-                        <outlet property="myShowsSegmentedControl" destination="gDq-ay-aaZ" id="z4s-nU-jjP"/>
                         <outlet property="upcomingShowsTableView" destination="pgq-jG-5bN" id="fJd-z9-PVj"/>
+                        <outlet property="watchlistScrollView" destination="egf-KJ-seS" id="naB-dB-9be"/>
+                        <outlet property="watchlistSegmentedControl" destination="gDq-ay-aaZ" id="WAM-GD-Q9K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -438,7 +438,6 @@
                     <tabBarItem key="tabBarItem" title="Item" id="IPq-Jq-zmR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2VU-Eg-aNW">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -488,19 +487,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="1125" height="454"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTV-y6-B7b">
-                                                <rect key="frame" x="0.0" y="-49" width="375" height="454"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="454"/>
                                                 <connections>
                                                     <segue destination="5Gp-ZE-88N" kind="embed" id="g9l-ls-xcS"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mxg-gg-IeK">
-                                                <rect key="frame" x="375" y="-49" width="375" height="454"/>
+                                                <rect key="frame" x="375" y="0.0" width="375" height="454"/>
                                                 <connections>
                                                     <segue destination="MMl-cg-sJh" kind="embed" id="JEC-wC-ToC"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0K2-37-F84">
-                                                <rect key="frame" x="750" y="-49" width="375" height="454"/>
+                                                <rect key="frame" x="750" y="0.0" width="375" height="454"/>
                                                 <connections>
                                                     <segue destination="ag8-XU-tVt" kind="embed" id="buu-cn-ZcH"/>
                                                 </connections>
@@ -919,7 +918,6 @@
                     <tabBarItem key="tabBarItem" title="Item" id="LMO-yz-2f2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gD4-4e-FS4">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

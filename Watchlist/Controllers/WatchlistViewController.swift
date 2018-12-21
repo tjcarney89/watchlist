@@ -8,10 +8,10 @@
 
 import UIKit
 
-class MyShowsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate, UITableViewDropDelegate, UIScrollViewDelegate {
+class WatchlistViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate, UITableViewDropDelegate, UIScrollViewDelegate {
     
-    @IBOutlet weak var myShowsSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var myShowsScrollView: UIScrollView!
+    @IBOutlet weak var watchlistSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var watchlistScrollView: UIScrollView!
     @IBOutlet weak var currentShowsTableView: UITableView!
     @IBOutlet weak var upcomingShowsTableView: UITableView!
     @IBOutlet weak var completedShowsTableView: UITableView!
@@ -37,6 +37,18 @@ class MyShowsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+        
+        Shows.guide().addShow(id: 1, to: .completed)
+        Shows.guide().addShow(id: 2, to: .upcoming)
+        Shows.guide().addShow(id: 3, to: .current)
+        Shows.guide().addShow(id: 4, to: .completed)
+        
+        Shows.guide().moveShow(id: 4, from: .completed, to: .current)
+        Shows.guide().removeShow(id: 4, from: .current)
+        
         currentShowsTableView.delegate = self
         currentShowsTableView.dataSource = self
         currentShowsTableView.dropDelegate = self
@@ -56,10 +68,10 @@ class MyShowsViewController: UIViewController, UITableViewDelegate, UITableViewD
         completedShowsTableView.dragDelegate = self
         completedShowsTableView.dragInteractionEnabled = true
         
-        myShowsScrollView.delegate = self
+        watchlistScrollView.delegate = self
         
-        myShowsSegmentedControl.selectedSegmentIndex = 1
-        myShowsScrollView.contentOffset = currentPoint
+        watchlistSegmentedControl.selectedSegmentIndex = 1
+        watchlistScrollView.contentOffset = currentPoint
         
         TVAPIClient.fetchShowDetails(showID: 1399) { (show) in
             print(show)
@@ -217,29 +229,31 @@ class MyShowsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    
     @IBAction func valueChanged(_ sender: Any) {
         
-        switch myShowsSegmentedControl.selectedSegmentIndex {
+        switch watchlistSegmentedControl.selectedSegmentIndex {
         case 0:
-            myShowsScrollView.setContentOffset(upcomingPoint, animated: true)
+            watchlistScrollView.setContentOffset(upcomingPoint, animated: true)
         case 1:
-            myShowsScrollView.setContentOffset(currentPoint, animated: true)
+            watchlistScrollView.setContentOffset(currentPoint, animated: true)
         case 2:
-            myShowsScrollView.setContentOffset(completedPoint, animated: true)
+            watchlistScrollView.setContentOffset(completedPoint, animated: true)
         default:
             break
         }
+        
     }
+    
+
     
     func updateSegmentedControl(point: CGPoint) {
         switch point {
         case upcomingPoint:
-            myShowsSegmentedControl.selectedSegmentIndex = 0
+            watchlistSegmentedControl.selectedSegmentIndex = 0
         case currentPoint:
-            myShowsSegmentedControl.selectedSegmentIndex = 1
+            watchlistSegmentedControl.selectedSegmentIndex = 1
         case completedPoint:
-            myShowsSegmentedControl.selectedSegmentIndex = 2
+            watchlistSegmentedControl.selectedSegmentIndex = 2
             
         default:
             return
