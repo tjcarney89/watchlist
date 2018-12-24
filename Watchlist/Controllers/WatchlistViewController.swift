@@ -27,9 +27,9 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
-   var currentShows: [TVShow] = []//[TVShow(name: "Walking Dead"), TVShow(name: "American Horror Story"), TVShow(name: "Trial and Error")]
-    var upcomingShows: [TVShow] = []//[TVShow(name: "Game of Thrones"), TVShow(name: "Veep")]
-    var completedShows: [TVShow] = []//[TVShow(name: "Sherlock"), TVShow(name: "Fargo"), TVShow(name: "Bodyguard")]
+    var currentShows: [TVShow] = []
+    var upcomingShows: [TVShow] = []
+    var completedShows: [TVShow] = []
     
     var draggedFromTableView: UITableView?
     var draggedItemIndexPath: IndexPath?
@@ -37,24 +37,11 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let domain = Bundle.main.bundleIdentifier!
-        UserDefaults.standard.removePersistentDomain(forName: domain)
-        UserDefaults.standard.synchronize()
-        
-        Shows.guide().addShow(id: 1, to: .completed)
-        Shows.guide().addShow(id: 2, to: .upcoming)
-        Shows.guide().addShow(id: 3, to: .current)
-        Shows.guide().addShow(id: 4, to: .completed)
-        
-        Shows.guide().moveShow(id: 4, from: .completed, to: .current)
-        Shows.guide().removeShow(id: 4, from: .current)
-        
         currentShowsTableView.delegate = self
         currentShowsTableView.dataSource = self
         currentShowsTableView.dropDelegate = self
         currentShowsTableView.dragDelegate = self
         currentShowsTableView.dragInteractionEnabled = true
-        
         
         upcomingShowsTableView.delegate = self
         upcomingShowsTableView.dataSource = self
@@ -69,15 +56,57 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         completedShowsTableView.dragInteractionEnabled = true
         
         watchlistScrollView.delegate = self
-        
-        watchlistSegmentedControl.selectedSegmentIndex = 1
         watchlistScrollView.contentOffset = currentPoint
         
-        TVAPIClient.fetchShowDetails(showID: 1399) { (show) in
-            print(show)
-        }
+        watchlistSegmentedControl.selectedSegmentIndex = 1
         
+        self.fetchAllShows(shows: Shows.guide().allShows)
+
+   
     }
+    
+    func fetchAllShows(shows: [String: [Int]]) {
+        for (key, value) in shows {
+            switch key {
+            case "current":
+                self.fetchShows(for: .current, ids: value) { (currentShows) in
+                    self.currentShows = currentShows
+                    DispatchQueue.main.async {
+                        self.currentShowsTableView.reloadData()
+                    }
+                }
+            case "upcoming":
+                self.fetchShows(for: .upcoming, ids: value) { (upcomingShows) in
+                    self.upcomingShows = upcomingShows
+                    DispatchQueue.main.async {
+                        self.upcomingShowsTableView.reloadData()
+                    }
+                }
+            case "completed":
+                self.fetchShows(for: .completed, ids: value) { (completedShows) in
+                    self.completedShows = completedShows
+                    DispatchQueue.main.async {
+                        self.completedShowsTableView.reloadData()
+                    }
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+    func fetchShows(for type: ShowType, ids: [Int], completion: @escaping ([TVShow]) -> ()) {
+        var shows: [TVShow] = []
+        for (index, id) in ids.enumerated() {
+            TVAPIClient.fetchShowDetails(showID: id) { (show) in
+                shows.append(show)
+                if index == ids.count - 1 {
+                    completion(shows)
+                }
+            }
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == currentShowsTableView {
@@ -109,6 +138,8 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         cell.showNameLabel.text = show.name
+        let url = URL(string: baseImageURL + show.imagePath)
+        cell.showImageView.kf.setImage(with: url)
         
         return cell
     }

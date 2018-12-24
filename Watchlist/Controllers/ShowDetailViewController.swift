@@ -31,15 +31,16 @@ class ShowDetailViewController: UIViewController {
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addToCurrentTapped(_ sender: Any) {
+        Shows.guide().addShow(id: show.id, to: .current)
     }
-    */
-
+    
+    @IBAction func addToUpcomingTapped(_ sender: Any) {
+        Shows.guide().addShow(id: show.id, to: .upcoming)
+    }
+    
+    @IBAction func addToCompletedTapped(_ sender: Any) {
+        Shows.guide().addShow(id: show.id, to: .completed)
+    }
+    
 }

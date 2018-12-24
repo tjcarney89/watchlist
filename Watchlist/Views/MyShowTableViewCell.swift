@@ -14,6 +14,7 @@ class MyShowTableViewCell: UITableViewCell {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var showNameLabel: UILabel!
     
+    @IBOutlet weak var showImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

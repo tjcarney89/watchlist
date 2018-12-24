@@ -34,6 +34,12 @@ class Shows {
         return shows
     }
     
+    func removeAll() {
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+    }
+    
     func addShow(id: Int, to list: ShowType) {
         self.allShows[list.rawValue]?.append(id)
         UserDefaults.standard.setValue(self.allShows, forKey: "Shows")
