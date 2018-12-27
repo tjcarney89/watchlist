@@ -36,7 +36,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         currentShowsTableView.delegate = self
         currentShowsTableView.dataSource = self
         currentShowsTableView.dropDelegate = self
@@ -59,6 +59,8 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         watchlistScrollView.contentOffset = currentPoint
         
         watchlistSegmentedControl.selectedSegmentIndex = 1
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateShows), name: NSNotification.Name(rawValue: "UpdateShows"), object: nil)
         
         self.fetchAllShows(shows: Shows.guide().allShows)
 
@@ -97,14 +99,18 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func fetchShows(for type: ShowType, ids: [Int], completion: @escaping ([TVShow]) -> ()) {
         var shows: [TVShow] = []
-        for (index, id) in ids.enumerated() {
+        for id in ids {
             TVAPIClient.fetchShowDetails(showID: id) { (show) in
                 shows.append(show)
-                if index == ids.count - 1 {
+                if shows.count == ids.count {
                     completion(shows)
                 }
             }
         }
+    }
+    
+    @objc func updateShows() {
+        self.fetchAllShows(shows: Shows.guide().allShows)
     }
     
     
@@ -119,7 +125,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+        return 200
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -229,12 +235,28 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
                 for (index, item) in coordinator.items.enumerated() {
                     //Destination index path for each item is calculated separately using the destinationIndexPath fetched from the coordinator
                     let indexPath = IndexPath(row: destinationIndexPath.row + index, section: destinationIndexPath.section)
+                    let show = item.dragItem.localObject as! TVShow
                     if tableView == currentShowsTableView {
                         currentShows.insert(item.dragItem.localObject as! TVShow, at: indexPath.row)
+                        if draggedFromTableView == upcomingShowsTableView {
+                            Shows.guide().moveShow(id: show.id, from: .upcoming, to: .current)
+                        } else if draggedFromTableView == completedShowsTableView {
+                            Shows.guide().moveShow(id: show.id, from: .completed, to: .current)
+                        }
                     } else if tableView == upcomingShowsTableView {
                         upcomingShows.insert(item.dragItem.localObject as! TVShow, at: indexPath.row)
+                        if draggedFromTableView == currentShowsTableView {
+                            Shows.guide().moveShow(id: show.id, from: .current, to: .upcoming)
+                        } else if draggedFromTableView == completedShowsTableView {
+                            Shows.guide().moveShow(id: show.id, from: .completed, to: .upcoming)
+                        }
                     } else {
                         completedShows.insert(item.dragItem.localObject as! TVShow, at: indexPath.row)
+                        if draggedFromTableView == currentShowsTableView {
+                            Shows.guide().moveShow(id: show.id, from: .current, to: .completed)
+                        } else if draggedFromTableView == upcomingShowsTableView {
+                            Shows.guide().moveShow(id: show.id, from: .upcoming, to: .completed)
+                        }
                     }
                     
                     indexPaths.append(indexPath)

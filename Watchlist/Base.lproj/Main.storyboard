@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egf-KJ-seS">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egf-KJ-seS">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rEb-tI-xDA">
@@ -30,28 +30,29 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6E-Dw-NjF" userLabel="Upcoming View">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                                 <subviews>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pgq-jG-5bN">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pgq-jG-5bN">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="upcomingShowCell" rowHeight="174" id="M2y-Am-8Js" customClass="MyShowTableViewCell" customModule="Watchlist" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="375" height="174"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M2y-Am-8Js" id="xnQ-sa-D0F">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="173.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="174"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lj4-ma-eoE">
-                                                                            <rect key="frame" x="9" y="4" width="357" height="158.5"/>
+                                                                            <rect key="frame" x="9" y="4" width="357" height="159"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nlg-UM-nKE">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="158.5"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="159"/>
                                                                                     <subviews>
                                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EFv-I6-ZpE">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="158.5"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="159"/>
                                                                                         </imageView>
                                                                                         <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2s-cY-sVM" userLabel="Overlay View">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="158.5"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="159"/>
                                                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </view>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE9-EI-osX">
@@ -84,6 +85,7 @@
                                                                             </constraints>
                                                                         </view>
                                                                     </subviews>
+                                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="trailing" secondItem="Lj4-ma-eoE" secondAttribute="trailing" constant="9" id="9OB-yh-nxa"/>
                                                                         <constraint firstItem="Lj4-ma-eoE" firstAttribute="top" secondItem="xnQ-sa-D0F" secondAttribute="top" constant="4" id="Hh1-ap-9k0"/>
@@ -112,28 +114,29 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fy-nK-hmG" userLabel="Current View">
                                                 <rect key="frame" x="375" y="0.0" width="375" height="554"/>
                                                 <subviews>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5YJ-6X-uFk">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5YJ-6X-uFk">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="currentShowCell" rowHeight="174" id="wgh-Sy-NB9" customClass="MyShowTableViewCell" customModule="Watchlist" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="375" height="174"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wgh-Sy-NB9" id="2un-fG-0uu">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="173.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="174"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHG-UY-eWw">
-                                                                            <rect key="frame" x="9" y="4" width="357" height="158.5"/>
+                                                                            <rect key="frame" x="9" y="4" width="357" height="159"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKs-9U-9Kx">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="158.5"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="159"/>
                                                                                     <subviews>
                                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0v8-ZK-bCZ">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="158.5"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="159"/>
                                                                                         </imageView>
                                                                                         <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1n-eG-ycl" userLabel="Overlay View">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="158.5"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="159"/>
                                                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </view>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5g-uK-Lux">
@@ -166,6 +169,7 @@
                                                                             </constraints>
                                                                         </view>
                                                                     </subviews>
+                                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="bottom" secondItem="oHG-UY-eWw" secondAttribute="bottom" constant="11" id="BuA-dw-Qtz"/>
                                                                         <constraint firstAttribute="trailing" secondItem="oHG-UY-eWw" secondAttribute="trailing" constant="9" id="c6i-yy-9yE"/>
@@ -194,28 +198,29 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jne-bP-jIb" userLabel="Completed View">
                                                 <rect key="frame" x="750" y="0.0" width="375" height="554"/>
                                                 <subviews>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V7y-9o-YJ8">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V7y-9o-YJ8">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="completedShowCell" rowHeight="174" id="Asf-cp-rQ2" customClass="MyShowTableViewCell" customModule="Watchlist" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="375" height="174"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Asf-cp-rQ2" id="kb2-xU-T4F">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="173.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="174"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6S-uS-SIc">
-                                                                            <rect key="frame" x="9" y="4" width="357" height="158.5"/>
+                                                                            <rect key="frame" x="9" y="4" width="357" height="159"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRl-bR-PXK">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="158.5"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="159"/>
                                                                                     <subviews>
                                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8T2-Gt-Iev">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="158.5"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="159"/>
                                                                                         </imageView>
                                                                                         <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pw-mo-yP0" userLabel="Overlay View">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="158.5"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="357" height="159"/>
                                                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </view>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5a-NH-Bic">
@@ -248,6 +253,7 @@
                                                                             </constraints>
                                                                         </view>
                                                                     </subviews>
+                                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="bottom" secondItem="l6S-uS-SIc" secondAttribute="bottom" constant="11" id="X7r-q0-hHE"/>
                                                                         <constraint firstItem="l6S-uS-SIc" firstAttribute="top" secondItem="kb2-xU-T4F" secondAttribute="top" constant="4" id="Zrd-st-5WZ"/>
@@ -278,7 +284,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="rEb-tI-xDA" firstAttribute="width" secondItem="egf-KJ-seS" secondAttribute="width" multiplier="3" id="17G-XZ-Via"/>
-                                    <constraint firstAttribute="bottom" secondItem="rEb-tI-xDA" secondAttribute="bottom" constant="269" id="HeL-Sn-uK4"/>
+                                    <constraint firstAttribute="bottom" secondItem="rEb-tI-xDA" secondAttribute="bottom" id="HeL-Sn-uK4"/>
                                     <constraint firstItem="rEb-tI-xDA" firstAttribute="height" secondItem="egf-KJ-seS" secondAttribute="height" id="XRs-TW-vHL"/>
                                     <constraint firstItem="rEb-tI-xDA" firstAttribute="centerY" secondItem="egf-KJ-seS" secondAttribute="centerY" id="fsJ-2w-5qm"/>
                                     <constraint firstAttribute="trailing" secondItem="rEb-tI-xDA" secondAttribute="trailing" id="gdj-Pv-LnH"/>
