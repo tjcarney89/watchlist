@@ -15,6 +15,9 @@ class ShowDetailViewController: UIViewController {
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var showImageView: UIImageView!
+    @IBOutlet weak var addToCurrentButton: UIButton!
+    @IBOutlet weak var addToUpcomingButton: UIButton!
+    @IBOutlet weak var addToCompletedButton: UIButton!
     
     var show: TVShow! {
         didSet {
@@ -23,6 +26,14 @@ class ShowDetailViewController: UIViewController {
             statusLabel.text = show.status
             let url = URL(string: baseImageURL + show.imagePath)
             showImageView.kf.setImage(with: url)
+            
+            for (key, value) in Shows.guide().allShows {
+                for id in value {
+                    if show.id == id {
+                        hideButtons()
+                    }
+                }
+            }
         }
     }
 
@@ -31,17 +42,25 @@ class ShowDetailViewController: UIViewController {
         
     }
     
+    func hideButtons() {
+        addToCurrentButton.isHidden = true
+        addToUpcomingButton.isHidden = true
+        addToCompletedButton.isHidden = true
+    }
+    
     
     @IBAction func addToCurrentTapped(_ sender: Any) {
         Shows.guide().addShow(id: show.id, to: .current)
         showAlert(for: .current)
         updateWatchlist()
+        hideButtons()
     }
     
     @IBAction func addToUpcomingTapped(_ sender: Any) {
         Shows.guide().addShow(id: show.id, to: .upcoming)
         showAlert(for: .upcoming)
         updateWatchlist()
+        hideButtons()
         
     }
     
@@ -49,6 +68,7 @@ class ShowDetailViewController: UIViewController {
         Shows.guide().addShow(id: show.id, to: .completed)
         showAlert(for: .completed)
         updateWatchlist()
+        hideButtons()
     }
     
     func showAlert(for list: ShowType) {

@@ -36,7 +36,8 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        
         currentShowsTableView.delegate = self
         currentShowsTableView.dataSource = self
         currentShowsTableView.dropDelegate = self

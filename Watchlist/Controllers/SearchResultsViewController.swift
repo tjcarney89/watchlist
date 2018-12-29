@@ -41,6 +41,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         return cell
     }
     
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let query = searchBar.text!
         TVAPIClient.searchShow(query: query) { (results) in
@@ -50,6 +51,8 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
                 self.searchResultsTableView.reloadData()
             }
         }
+        
+        self.view.endEditing(true)
     }
     
 
