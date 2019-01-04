@@ -15,7 +15,7 @@ struct Episode: Codable {
     let description: String
     let seasonNumber: Int
     let episodeNumber: Int
-    let date: String
+    let date: String?
     
     init(params: [String:Any]) {
         self.name = params["name"] as? String ?? ""
@@ -23,6 +23,12 @@ struct Episode: Codable {
         self.description = params["overview"] as? String ?? ""
         self.seasonNumber = params["season_number"] as? Int ?? 0
         self.episodeNumber = params["episode_number"] as? Int ?? 0
-        self.date = params["air_date"] as? String ?? ""
+        let rawDate = params["air_date"] as? String
+        if rawDate != nil {
+            self.date = DateFormat.getReadableDate(from: rawDate!)
+        } else {
+            self.date = nil
+        }
+        
     }
 }

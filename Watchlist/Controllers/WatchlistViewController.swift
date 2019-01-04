@@ -133,6 +133,8 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell: MyShowTableViewCell!
         let show: TVShow!
         
+        
+        
         if tableView == currentShowsTableView {
             cell = tableView.dequeueReusableCell(withIdentifier: "currentShowCell") as! MyShowTableViewCell
             show = currentShows[indexPath.row]
@@ -144,7 +146,27 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
             show = completedShows[indexPath.row]
         }
         
+        
         cell.showNameLabel.text = show.name
+        
+        if show.lastEpisode.date == nil {
+            cell.lastEpisodeLabel.isHidden = true
+            cell.lastEpisodeDate.isHidden = true 
+        } else {
+            cell.lastEpisodeLabel.isHidden = false
+            cell.lastEpisodeDate.isHidden = false
+            cell.lastEpisodeDate.text = show.lastEpisode.date!
+        }
+        
+        if show.nextEpisode.date == nil {
+            cell.nextEpisodeLabel.isHidden = true
+            cell.nextEpisodeDate.isHidden = true
+        } else {
+            cell.nextEpisodeLabel.isHidden = false
+            cell.nextEpisodeDate.isHidden = false
+            cell.nextEpisodeDate.text = show.nextEpisode.date!
+        }
+     
         let url = URL(string: baseImageURL + show.imagePath)
         cell.showImageView.kf.setImage(with: url)
         

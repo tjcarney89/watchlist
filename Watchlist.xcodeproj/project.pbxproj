@@ -30,6 +30,7 @@
 		F092589121B99F7C00E1F139 /* ShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092589021B99F7C00E1F139 /* ShowDetailViewController.swift */; };
 		F092589321BAFE4C00E1F139 /* FindShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092589221BAFE4C00E1F139 /* FindShowViewController.swift */; };
 		F092589521BAFF5100E1F139 /* TopRatedShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092589421BAFF5100E1F139 /* TopRatedShowsViewController.swift */; };
+		F0F4347421DA9A1700E55327 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4347321DA9A1700E55327 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		F092589021B99F7C00E1F139 /* ShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewController.swift; sourceTree = "<group>"; };
 		F092589221BAFE4C00E1F139 /* FindShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindShowViewController.swift; sourceTree = "<group>"; };
 		F092589421BAFF5100E1F139 /* TopRatedShowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedShowsViewController.swift; sourceTree = "<group>"; };
+		F0F4347321DA9A1700E55327 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				F092588A21B1B13300E1F139 /* API Key.swift */,
 				F0018F4B21A4EDF4002B44ED /* MasterAPIClient.swift */,
 				F0018F4D21A4F08C002B44ED /* TVAPIClient.swift */,
+				F0F4347321DA9A1700E55327 /* Helpers.swift */,
 				F07769A6219C9E63005DB5CD /* Main.storyboard */,
 				F07769AC219C9E66005DB5CD /* Assets.xcassets */,
 				F07769AE219C9E66005DB5CD /* LaunchScreen.storyboard */,
@@ -296,6 +299,7 @@
 				F07769AB219C9E64005DB5CD /* Watchlist.xcdatamodeld in Sources */,
 				F0018F5221A5DC2D002B44ED /* SearchResultsViewController.swift in Sources */,
 				F07769A5219C9E63005DB5CD /* WatchlistViewController.swift in Sources */,
+				F0F4347421DA9A1700E55327 /* Helpers.swift in Sources */,
 				F092589121B99F7C00E1F139 /* ShowDetailViewController.swift in Sources */,
 				F092588B21B1B13300E1F139 /* API Key.swift in Sources */,
 				F07769A3219C9E63005DB5CD /* AppDelegate.swift in Sources */,
