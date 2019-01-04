@@ -532,11 +532,11 @@
             </objects>
             <point key="canvasLocation" x="1017" y="-488"/>
         </scene>
-        <!--Item-->
+        <!--Watchlist-->
         <scene sceneID="Ipg-7j-rMH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cpY-jD-rel" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="IPq-Jq-zmR"/>
+                    <tabBarItem key="tabBarItem" title="Watchlist" image="tab watchlist" id="IPq-Jq-zmR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2VU-Eg-aNW">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -551,7 +551,7 @@
             </objects>
             <point key="canvasLocation" x="-754" y="91"/>
         </scene>
-        <!--Item-->
+        <!--Discover-->
         <scene sceneID="lYI-U9-0bl">
             <objects>
                 <viewController id="wpP-tc-s4m" sceneMemberID="viewController">
@@ -564,7 +564,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="k3y-HM-GsW"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="tab discover" id="k3y-HM-GsW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUA-UH-W1G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1032,10 +1032,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="Watchlist Green"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="cpY-jD-rel" kind="relationship" relationship="viewControllers" id="C91-Q0-tmq"/>
                         <segue destination="3WY-yd-dBH" kind="relationship" relationship="viewControllers" id="P8T-vF-lzd"/>
+                        <segue destination="cpY-jD-rel" kind="relationship" relationship="viewControllers" id="C91-Q0-tmq"/>
                         <segue destination="wpP-tc-s4m" kind="relationship" relationship="viewControllers" id="jJJ-4F-lk9"/>
                     </connections>
                 </tabBarController>
@@ -1043,11 +1049,11 @@
             </objects>
             <point key="canvasLocation" x="-1703" y="92"/>
         </scene>
-        <!--Item-->
+        <!--Find-->
         <scene sceneID="wiw-82-B22">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3WY-yd-dBH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="LMO-yz-2f2"/>
+                    <tabBarItem key="tabBarItem" title="Find" image="tab find" id="LMO-yz-2f2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gD4-4e-FS4">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1066,6 +1072,9 @@
     <resources>
         <image name="magnifying-glass" width="51.200000762939453" height="51.200000762939453"/>
         <image name="star" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="tab discover" width="18.399999618530273" height="18.399999618530273"/>
+        <image name="tab find" width="18" height="18"/>
+        <image name="tab watchlist" width="18.399999618530273" height="18.399999618530273"/>
         <image name="thumb-up" width="51.200000762939453" height="51.200000762939453"/>
         <namedColor name="Watchlist Green">
             <color red="0.22352941176470589" green="0.61960784313725492" blue="0.35294117647058826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

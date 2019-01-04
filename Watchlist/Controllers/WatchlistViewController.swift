@@ -284,7 +284,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
                     
                     indexPaths.append(indexPath)
                 }
-                tableView.insertRows(at: indexPaths, with: .automatic)
+                tableView.insertRows(at: indexPaths, with: .fade)
             })
             
             draggedFromTableView!.performBatchUpdates({
