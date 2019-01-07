@@ -24,7 +24,7 @@
 		F07769B0219C9E66005DB5CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07769AE219C9E66005DB5CD /* LaunchScreen.storyboard */; };
 		F092588421ADC37400E1F139 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092588321ADC37400E1F139 /* TVShow.swift */; };
 		F092588921AF18F700E1F139 /* MyShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092588821AF18F700E1F139 /* MyShowTableViewCell.swift */; };
-		F092588B21B1B13300E1F139 /* API Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092588A21B1B13300E1F139 /* API Key.swift */; };
+		F092588B21B1B13300E1F139 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092588A21B1B13300E1F139 /* APIKey.swift */; };
 		F092588D21B5ACC400E1F139 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092588C21B5ACC400E1F139 /* Episode.swift */; };
 		F092588F21B7004E00E1F139 /* PopularShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092588E21B7004E00E1F139 /* PopularShowsViewController.swift */; };
 		F092589121B99F7C00E1F139 /* ShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092589021B99F7C00E1F139 /* ShowDetailViewController.swift */; };
@@ -55,7 +55,7 @@
 		F07769B1219C9E66005DB5CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F092588321ADC37400E1F139 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
 		F092588821AF18F700E1F139 /* MyShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShowTableViewCell.swift; sourceTree = "<group>"; };
-		F092588A21B1B13300E1F139 /* API Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API Key.swift"; sourceTree = "<group>"; };
+		F092588A21B1B13300E1F139 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		F092588C21B5ACC400E1F139 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		F092588E21B7004E00E1F139 /* PopularShowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularShowsViewController.swift; sourceTree = "<group>"; };
 		F092589021B99F7C00E1F139 /* ShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewController.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 				F092588721AF17D700E1F139 /* Controllers */,
 				F0018F4921A48C62002B44ED /* AppConstants.swift */,
 				F0509B7D21CACFDC0029F768 /* Shows.swift */,
-				F092588A21B1B13300E1F139 /* API Key.swift */,
+				F092588A21B1B13300E1F139 /* APIKey.swift */,
 				F0018F4B21A4EDF4002B44ED /* MasterAPIClient.swift */,
 				F0018F4D21A4F08C002B44ED /* TVAPIClient.swift */,
 				F0F4347321DA9A1700E55327 /* Helpers.swift */,
@@ -301,7 +301,7 @@
 				F07769A5219C9E63005DB5CD /* WatchlistViewController.swift in Sources */,
 				F0F4347421DA9A1700E55327 /* Helpers.swift in Sources */,
 				F092589121B99F7C00E1F139 /* ShowDetailViewController.swift in Sources */,
-				F092588B21B1B13300E1F139 /* API Key.swift in Sources */,
+				F092588B21B1B13300E1F139 /* APIKey.swift in Sources */,
 				F07769A3219C9E63005DB5CD /* AppDelegate.swift in Sources */,
 				F0509B7E21CACFDC0029F768 /* Shows.swift in Sources */,
 				F0018F4A21A48C62002B44ED /* AppConstants.swift in Sources */,

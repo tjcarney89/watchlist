@@ -1,5 +1,5 @@
 //
-//  API Key.swift
+//  APIKey.swift
 //  Watchlist
 //
 //  Created by TJ Carney on 11/30/18.
