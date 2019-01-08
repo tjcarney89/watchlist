@@ -16,6 +16,8 @@
 		F0018F5421A5DCAE002B44ED /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0018F5321A5DCAE002B44ED /* SearchResultTableViewCell.swift */; };
 		F0509B7E21CACFDC0029F768 /* Shows.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0509B7D21CACFDC0029F768 /* Shows.swift */; };
 		F0509B8021CAD1D30029F768 /* ShowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0509B7F21CAD1D30029F768 /* ShowType.swift */; };
+		F072432921E3D23700865823 /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072432821E3D23700865823 /* DiscoverTableViewCell.swift */; };
+		F072432B21E3D29600865823 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072432A21E3D29600865823 /* DiscoverViewController.swift */; };
 		F07769A3219C9E63005DB5CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07769A2219C9E63005DB5CD /* AppDelegate.swift */; };
 		F07769A5219C9E63005DB5CD /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07769A4219C9E63005DB5CD /* WatchlistViewController.swift */; };
 		F07769A8219C9E63005DB5CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07769A6219C9E63005DB5CD /* Main.storyboard */; };
@@ -45,6 +47,8 @@
 		F0018F5321A5DCAE002B44ED /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		F0509B7D21CACFDC0029F768 /* Shows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shows.swift; sourceTree = "<group>"; };
 		F0509B7F21CAD1D30029F768 /* ShowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowType.swift; sourceTree = "<group>"; };
+		F072432821E3D23700865823 /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
+		F072432A21E3D29600865823 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		F077699F219C9E63005DB5CD /* Watchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F07769A2219C9E63005DB5CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F07769A4219C9E63005DB5CD /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			children = (
 				F0018F5321A5DCAE002B44ED /* SearchResultTableViewCell.swift */,
 				F092588821AF18F700E1F139 /* MyShowTableViewCell.swift */,
+				F072432821E3D23700865823 /* DiscoverTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 				F092588E21B7004E00E1F139 /* PopularShowsViewController.swift */,
 				F092589421BAFF5100E1F139 /* TopRatedShowsViewController.swift */,
 				F0018F5121A5DC2D002B44ED /* SearchResultsViewController.swift */,
+				F072432A21E3D29600865823 /* DiscoverViewController.swift */,
 				F092589021B99F7C00E1F139 /* ShowDetailViewController.swift */,
 			);
 			path = Controllers;
@@ -301,6 +307,7 @@
 				F07769A5219C9E63005DB5CD /* WatchlistViewController.swift in Sources */,
 				F0F4347421DA9A1700E55327 /* Helpers.swift in Sources */,
 				F092589121B99F7C00E1F139 /* ShowDetailViewController.swift in Sources */,
+				F072432921E3D23700865823 /* DiscoverTableViewCell.swift in Sources */,
 				F092588B21B1B13300E1F139 /* APIKey.swift in Sources */,
 				F07769A3219C9E63005DB5CD /* AppDelegate.swift in Sources */,
 				F0509B7E21CACFDC0029F768 /* Shows.swift in Sources */,
@@ -314,6 +321,7 @@
 				F0018F4E21A4F08C002B44ED /* TVAPIClient.swift in Sources */,
 				F092588421ADC37400E1F139 /* TVShow.swift in Sources */,
 				F092589521BAFF5100E1F139 /* TopRatedShowsViewController.swift in Sources */,
+				F072432B21E3D29600865823 /* DiscoverViewController.swift in Sources */,
 				F0509B8021CAD1D30029F768 /* ShowType.swift in Sources */,
 				F0018F5421A5DCAE002B44ED /* SearchResultTableViewCell.swift in Sources */,
 			);

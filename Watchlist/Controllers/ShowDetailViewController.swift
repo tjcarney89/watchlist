@@ -18,6 +18,7 @@ class ShowDetailViewController: UIViewController {
     @IBOutlet weak var addToCurrentButton: UIButton!
     @IBOutlet weak var addToUpcomingButton: UIButton!
     @IBOutlet weak var addToCompletedButton: UIButton!
+    @IBOutlet weak var addToDiscoverButton: UIButton!
     
     var show: TVShow! {
         didSet {
@@ -46,6 +47,7 @@ class ShowDetailViewController: UIViewController {
         addToCurrentButton.isHidden = true
         addToUpcomingButton.isHidden = true
         addToCompletedButton.isHidden = true
+        addToDiscoverButton.isHidden = true
     }
     
     
@@ -71,6 +73,14 @@ class ShowDetailViewController: UIViewController {
         hideButtons()
     }
     
+    @IBAction func addToDiscoverTapped(_ sender: Any) {
+        Shows.guide().addShow(id: show.id, to: .discover)
+        showAlert(for: .discover)
+        updateDiscover()
+        hideButtons()
+    }
+    
+    
     func showAlert(for list: ShowType) {
         let alert = UIAlertController.init(title: "Show Added", message: "\(self.show.name) added to \(list.rawValue.capitalized)", preferredStyle: .alert)
         Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
@@ -84,7 +94,11 @@ class ShowDetailViewController: UIViewController {
     }
     
     func updateWatchlist() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateShows"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateWatchlist"), object: nil)
+    }
+    
+    func updateDiscover() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateDiscover"), object: nil)
     }
     
     

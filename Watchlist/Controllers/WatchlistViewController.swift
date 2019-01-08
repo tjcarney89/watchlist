@@ -37,6 +37,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //TODO: Add "Remove" Functionality
         
         currentShowsTableView.delegate = self
         currentShowsTableView.dataSource = self
@@ -61,10 +62,11 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         
         watchlistSegmentedControl.selectedSegmentIndex = 1
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateShows), name: NSNotification.Name(rawValue: "UpdateShows"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateShows), name: NSNotification.Name(rawValue: "UpdateWatchlist"), object: nil)
         
         self.fetchAllShows(shows: Shows.guide().allShows)
-
+        
+        
    
     }
     
@@ -72,21 +74,21 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         for (key, value) in shows {
             switch key {
             case "current":
-                self.fetchShows(for: .current, ids: value) { (currentShows) in
+                Shows.guide().fetchShows(for: .current, ids: value) { (currentShows) in
                     self.currentShows = currentShows
                     DispatchQueue.main.async {
                         self.currentShowsTableView.reloadData()
                     }
                 }
             case "upcoming":
-                self.fetchShows(for: .upcoming, ids: value) { (upcomingShows) in
+                Shows.guide().fetchShows(for: .upcoming, ids: value) { (upcomingShows) in
                     self.upcomingShows = upcomingShows
                     DispatchQueue.main.async {
                         self.upcomingShowsTableView.reloadData()
                     }
                 }
             case "completed":
-                self.fetchShows(for: .completed, ids: value) { (completedShows) in
+                Shows.guide().fetchShows(for: .completed, ids: value) { (completedShows) in
                     self.completedShows = completedShows
                     DispatchQueue.main.async {
                         self.completedShowsTableView.reloadData()
@@ -98,17 +100,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func fetchShows(for type: ShowType, ids: [Int], completion: @escaping ([TVShow]) -> ()) {
-        var shows: [TVShow] = []
-        for id in ids {
-            TVAPIClient.fetchShowDetails(showID: id) { (show) in
-                shows.append(show)
-                if shows.count == ids.count {
-                    completion(shows)
-                }
-            }
-        }
-    }
+    
     
     @objc func updateShows() {
         self.fetchAllShows(shows: Shows.guide().allShows)

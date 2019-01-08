@@ -29,7 +29,7 @@ class Shows {
     }
     
     public func generateDefaultShows() -> [String: [Int]] {
-        let shows: [String: [Int]] = ["current" : [], "upcoming": [], "completed": []]
+        let shows: [String: [Int]] = ["current" : [], "upcoming": [], "completed": [], "discover": []]
         UserDefaults.standard.setValue(shows, forKey: "Shows")
         return shows
     }
@@ -61,5 +61,17 @@ class Shows {
     func moveShow(id: Int, from: ShowType, to: ShowType) {
         self.removeShow(id: id, from: from)
         self.addShow(id: id, to: to)
+    }
+    
+    func fetchShows(for type: ShowType, ids: [Int], completion: @escaping ([TVShow]) -> ()) {
+        var shows: [TVShow] = []
+        for id in ids {
+            TVAPIClient.fetchShowDetails(showID: id) { (show) in
+                shows.append(show)
+                if shows.count == ids.count {
+                    completion(shows)
+                }
+            }
+        }
     }
 }

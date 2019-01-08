@@ -12,4 +12,6 @@ enum ShowType: String {
     case current
     case completed
     case upcoming
+    case discover
+    
 }
