@@ -37,7 +37,6 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //TODO: Add "Remove" Functionality
         
         currentShowsTableView.delegate = self
         currentShowsTableView.dataSource = self
@@ -164,6 +163,16 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true 
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //
+    }
+    
+    //Drag and Drop
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         
@@ -330,6 +339,25 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         updateSegmentedControl(point: scrollView.contentOffset)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let detailVC = segue.destination as? WatchlistDetailViewController {
+            if segue.identifier == "upcomingSegue" {
+                detailVC.type = .upcoming
+                detailVC.show = upcomingShows[(upcomingShowsTableView.indexPathForSelectedRow!.row)]
+            } else if segue.identifier == "currentSegue" {
+                detailVC.type = .current
+                detailVC.show = currentShows[currentShowsTableView.indexPathForSelectedRow!.row]
+            } else {
+                detailVC.type = .completed
+                detailVC.show = completedShows[(completedShowsTableView.indexPathForSelectedRow!.row)]
+            }
+        }
+        
+        
+        
     }
     
 }

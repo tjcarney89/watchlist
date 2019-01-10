@@ -18,6 +18,7 @@
 		F0509B8021CAD1D30029F768 /* ShowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0509B7F21CAD1D30029F768 /* ShowType.swift */; };
 		F072432921E3D23700865823 /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072432821E3D23700865823 /* DiscoverTableViewCell.swift */; };
 		F072432B21E3D29600865823 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072432A21E3D29600865823 /* DiscoverViewController.swift */; };
+		F072432D21E6774D00865823 /* WatchlistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072432C21E6774C00865823 /* WatchlistDetailViewController.swift */; };
 		F07769A3219C9E63005DB5CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07769A2219C9E63005DB5CD /* AppDelegate.swift */; };
 		F07769A5219C9E63005DB5CD /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07769A4219C9E63005DB5CD /* WatchlistViewController.swift */; };
 		F07769A8219C9E63005DB5CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07769A6219C9E63005DB5CD /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		F0509B7F21CAD1D30029F768 /* ShowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowType.swift; sourceTree = "<group>"; };
 		F072432821E3D23700865823 /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
 		F072432A21E3D29600865823 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		F072432C21E6774C00865823 /* WatchlistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistDetailViewController.swift; sourceTree = "<group>"; };
 		F077699F219C9E63005DB5CD /* Watchlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watchlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F07769A2219C9E63005DB5CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F07769A4219C9E63005DB5CD /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				F0018F5121A5DC2D002B44ED /* SearchResultsViewController.swift */,
 				F072432A21E3D29600865823 /* DiscoverViewController.swift */,
 				F092589021B99F7C00E1F139 /* ShowDetailViewController.swift */,
+				F072432C21E6774C00865823 /* WatchlistDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				F0018F4A21A48C62002B44ED /* AppConstants.swift in Sources */,
 				F0018F5021A5D93E002B44ED /* SearchResult.swift in Sources */,
 				F092589321BAFE4C00E1F139 /* FindShowViewController.swift in Sources */,
+				F072432D21E6774D00865823 /* WatchlistDetailViewController.swift in Sources */,
 				F092588D21B5ACC400E1F139 /* Episode.swift in Sources */,
 				F092588921AF18F700E1F139 /* MyShowTableViewCell.swift in Sources */,
 				F0018F4C21A4EDF4002B44ED /* MasterAPIClient.swift in Sources */,

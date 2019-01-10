@@ -65,11 +65,15 @@ class Shows {
     
     func fetchShows(for type: ShowType, ids: [Int], completion: @escaping ([TVShow]) -> ()) {
         var shows: [TVShow] = []
-        for id in ids {
-            TVAPIClient.fetchShowDetails(showID: id) { (show) in
-                shows.append(show)
-                if shows.count == ids.count {
-                    completion(shows)
+        if ids.count == 0 {
+            completion(shows)
+        } else {
+            for id in ids {
+                TVAPIClient.fetchShowDetails(showID: id) { (show) in
+                    shows.append(show)
+                    if shows.count == ids.count {
+                        completion(shows)
+                    }
                 }
             }
         }

@@ -134,6 +134,7 @@
                                                                     <outlet property="shadowView" destination="Lj4-ma-eoE" id="GOy-5k-pQz"/>
                                                                     <outlet property="showImageView" destination="EFv-I6-ZpE" id="5iS-gn-MiP"/>
                                                                     <outlet property="showNameLabel" destination="HE9-EI-osX" id="Hcx-5y-Izk"/>
+                                                                    <segue destination="9nr-0o-xbZ" kind="show" identifier="upcomingSegue" id="DQO-jX-0tB"/>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
@@ -254,6 +255,7 @@
                                                                     <outlet property="shadowView" destination="oHG-UY-eWw" id="jSz-ZT-bRT"/>
                                                                     <outlet property="showImageView" destination="0v8-ZK-bCZ" id="mv8-fW-WZX"/>
                                                                     <outlet property="showNameLabel" destination="t5g-uK-Lux" id="Jlc-f0-dqT"/>
+                                                                    <segue destination="9nr-0o-xbZ" kind="show" identifier="currentSegue" id="ceU-1z-rd9"/>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
@@ -374,6 +376,7 @@
                                                                     <outlet property="shadowView" destination="l6S-uS-SIc" id="Aut-zB-8bV"/>
                                                                     <outlet property="showImageView" destination="8T2-Gt-Iev" id="IQY-pz-Reu"/>
                                                                     <outlet property="showNameLabel" destination="y5a-NH-Bic" id="agM-TJ-otl"/>
+                                                                    <segue destination="9nr-0o-xbZ" kind="show" identifier="completedSegue" id="a7d-is-Vjd"/>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
@@ -531,6 +534,44 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1017" y="-488"/>
+        </scene>
+        <!--Watchlist Detail View Controller-->
+        <scene sceneID="4wt-az-f77">
+            <objects>
+                <viewController id="9nr-0o-xbZ" customClass="WatchlistDetailViewController" customModule="Watchlist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RlI-7H-kdW"/>
+                        <viewControllerLayoutGuide type="bottom" id="cof-We-qEM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fJW-d9-AXo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKh-Js-ASa">
+                                <rect key="frame" x="37.5" y="258.5" width="300" height="150"/>
+                                <color key="backgroundColor" red="1" green="0.083833116920000006" blue="0.1186574561" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="UAC-Br-xt7"/>
+                                    <constraint firstAttribute="width" constant="300" id="a73-dd-5ED"/>
+                                </constraints>
+                                <state key="normal" title="Remove from Watchlist">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeButtonTapped:" destination="9nr-0o-xbZ" eventType="touchUpInside" id="mmE-96-PIY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aKh-Js-ASa" firstAttribute="centerY" secondItem="fJW-d9-AXo" secondAttribute="centerY" id="cX8-1D-1MK"/>
+                            <constraint firstItem="aKh-Js-ASa" firstAttribute="centerX" secondItem="fJW-d9-AXo" secondAttribute="centerX" id="ghe-cd-OLl"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="plH-sJ-KLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1596" y="98.50074962518741"/>
         </scene>
         <!--Watchlist-->
         <scene sceneID="Ipg-7j-rMH">
@@ -1162,5 +1203,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tfK-HU-isb"/>
+        <segue reference="a7d-is-Vjd"/>
     </inferredMetricsTieBreakers>
 </document>
