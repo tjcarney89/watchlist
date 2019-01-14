@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ShowType: String {
+enum ShowType: String, Codable {
     case current
     case completed
     case upcoming

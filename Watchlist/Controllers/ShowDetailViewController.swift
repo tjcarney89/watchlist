@@ -28,15 +28,17 @@ class ShowDetailViewController: UIViewController {
             let url = URL(string: baseImageURL + show.imagePath)
             showImageView.kf.setImage(with: url)
             
-            for (key, value) in Shows.guide().allShows {
-                for id in value {
-                    if show.id == id {
-                        hideButtons()
-                    }
+            if show.showType != nil {
+                if show.showType == ShowType.discover {
+                    addToDiscoverButton.isHidden = true
+                } else {
+                    self.hideButtons()
                 }
             }
         }
     }
+    
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,7 @@ class ShowDetailViewController: UIViewController {
     @IBAction func addToCurrentTapped(_ sender: Any) {
         Shows.guide().addShow(id: show.id, to: .current)
         showAlert(for: .current)
+        checkDiscover()
         updateWatchlist()
         hideButtons()
     }
@@ -61,6 +64,7 @@ class ShowDetailViewController: UIViewController {
     @IBAction func addToUpcomingTapped(_ sender: Any) {
         Shows.guide().addShow(id: show.id, to: .upcoming)
         showAlert(for: .upcoming)
+        checkDiscover()
         updateWatchlist()
         hideButtons()
         
@@ -69,6 +73,7 @@ class ShowDetailViewController: UIViewController {
     @IBAction func addToCompletedTapped(_ sender: Any) {
         Shows.guide().addShow(id: show.id, to: .completed)
         showAlert(for: .completed)
+        checkDiscover()
         updateWatchlist()
         hideButtons()
     }
@@ -78,6 +83,13 @@ class ShowDetailViewController: UIViewController {
         showAlert(for: .discover)
         updateDiscover()
         hideButtons()
+    }
+    
+    func checkDiscover() {
+        if show.showType == ShowType.discover {
+            Shows.guide().removeShow(id: show.id, from: .discover)
+            updateDiscover()
+        }
     }
     
     

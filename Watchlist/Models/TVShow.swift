@@ -19,9 +19,10 @@ final class TVShow: NSObject, NSItemProviderWriting, NSItemProviderReading, Coda
     let networks: [String]
     let status: String
     let imagePath: String
+    var showType: ShowType? = nil
     
     
-    init(name: String, id: Int, overview: String, lastEpisode: Episode, nextEpisode: Episode, networks: [String], status: String, imagePath: String) {
+    init(name: String, id: Int, overview: String, lastEpisode: Episode, nextEpisode: Episode, networks: [String], status: String, imagePath: String, showType: ShowType) {
         self.name = name
         self.id = id
         self.overview = overview
@@ -30,11 +31,13 @@ final class TVShow: NSObject, NSItemProviderWriting, NSItemProviderReading, Coda
         self.networks = networks
         self.status = status
         self.imagePath = imagePath
+        self.showType = showType
     }
     
     init(json: [String:Any]) {
         self.name = json["name"] as? String ?? ""
-        self.id = json["id"] as? Int ?? 0
+        let id = json["id"] as? Int ?? 0
+        self.id = id
         self.overview = json["overview"] as? String ?? ""
         let lastEpisodeDict = json["last_episode_to_air"] as? [String:Any] ?? [:]
         let nextEpisodeDict = json["next_episode_to_air"] as? [String:Any] ?? [:]
@@ -49,6 +52,17 @@ final class TVShow: NSObject, NSItemProviderWriting, NSItemProviderReading, Coda
         self.networks = networkNames
         self.status = json["status"] as? String ?? ""
         self.imagePath = json["backdrop_path"] as? String ?? ""
+        
+        var showType: ShowType? = nil
+        for (key, value) in Shows.guide().allShows {
+            for showID in value {
+                if showID == id {
+                    let type = key.lowercased()
+                    showType = ShowType(rawValue: type)
+                }
+            }
+        }
+        self.showType = showType
     }
     
     static var writableTypeIdentifiersForItemProvider: [String] {

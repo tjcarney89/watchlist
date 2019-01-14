@@ -161,6 +161,7 @@ class WatchlistViewController: UIViewController, UITableViewDelegate, UITableVie
         let url = URL(string: baseImageURL + show.imagePath)
         cell.showImageView.kf.setImage(with: url)
         
+        
         return cell
     }
     
