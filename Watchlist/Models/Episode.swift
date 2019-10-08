@@ -16,6 +16,7 @@ struct Episode: Codable {
     let seasonNumber: Int
     let episodeNumber: Int
     let date: String?
+    let imagePath: String
     
     init(params: [String:Any]) {
         self.name = params["name"] as? String ?? ""
@@ -23,6 +24,7 @@ struct Episode: Codable {
         self.description = params["overview"] as? String ?? ""
         self.seasonNumber = params["season_number"] as? Int ?? 0
         self.episodeNumber = params["episode_number"] as? Int ?? 0
+        self.imagePath = params["still_path"] as? String ?? ""
         let rawDate = params["air_date"] as? String
         if rawDate != nil {
             self.date = DateFormat.getReadableDate(from: rawDate!)

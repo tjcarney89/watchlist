@@ -19,10 +19,11 @@ final class TVShow: NSObject, NSItemProviderWriting, NSItemProviderReading, Coda
     let networks: [String]
     let status: String
     let imagePath: String
+    let seasons: Int
     var showType: ShowType? = nil
     
     
-    init(name: String, id: Int, overview: String, lastEpisode: Episode, nextEpisode: Episode, networks: [String], status: String, imagePath: String, showType: ShowType) {
+    init(name: String, id: Int, overview: String, lastEpisode: Episode, nextEpisode: Episode, networks: [String], status: String, seasons: Int, imagePath: String, showType: ShowType) {
         self.name = name
         self.id = id
         self.overview = overview
@@ -32,6 +33,7 @@ final class TVShow: NSObject, NSItemProviderWriting, NSItemProviderReading, Coda
         self.status = status
         self.imagePath = imagePath
         self.showType = showType
+        self.seasons = seasons
     }
     
     init(json: [String:Any]) {
@@ -51,6 +53,7 @@ final class TVShow: NSObject, NSItemProviderWriting, NSItemProviderReading, Coda
         }
         self.networks = networkNames
         self.status = json["status"] as? String ?? ""
+        self.seasons = json["number_of_seasons"] as? Int ?? 0
         self.imagePath = json["backdrop_path"] as? String ?? ""
         
         var showType: ShowType? = nil

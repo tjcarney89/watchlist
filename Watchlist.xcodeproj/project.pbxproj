@@ -16,6 +16,7 @@
 		F0018F5421A5DCAE002B44ED /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0018F5321A5DCAE002B44ED /* SearchResultTableViewCell.swift */; };
 		F0509B7E21CACFDC0029F768 /* Shows.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0509B7D21CACFDC0029F768 /* Shows.swift */; };
 		F0509B8021CAD1D30029F768 /* ShowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0509B7F21CAD1D30029F768 /* ShowType.swift */; };
+		F06CF183234C32F7000E80EA /* EpisodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06CF182234C32F7000E80EA /* EpisodeCollectionViewCell.swift */; };
 		F072432921E3D23700865823 /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072432821E3D23700865823 /* DiscoverTableViewCell.swift */; };
 		F072432B21E3D29600865823 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072432A21E3D29600865823 /* DiscoverViewController.swift */; };
 		F072432D21E6774D00865823 /* WatchlistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072432C21E6774C00865823 /* WatchlistDetailViewController.swift */; };
@@ -48,6 +49,7 @@
 		F0018F5321A5DCAE002B44ED /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		F0509B7D21CACFDC0029F768 /* Shows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shows.swift; sourceTree = "<group>"; };
 		F0509B7F21CAD1D30029F768 /* ShowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowType.swift; sourceTree = "<group>"; };
+		F06CF182234C32F7000E80EA /* EpisodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F072432821E3D23700865823 /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
 		F072432A21E3D29600865823 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		F072432C21E6774C00865823 /* WatchlistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistDetailViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				F0018F5321A5DCAE002B44ED /* SearchResultTableViewCell.swift */,
 				F092588821AF18F700E1F139 /* MyShowTableViewCell.swift */,
 				F072432821E3D23700865823 /* DiscoverTableViewCell.swift */,
+				F06CF182234C32F7000E80EA /* EpisodeCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				F0018F4C21A4EDF4002B44ED /* MasterAPIClient.swift in Sources */,
 				F092588F21B7004E00E1F139 /* PopularShowsViewController.swift in Sources */,
 				F0018F4E21A4F08C002B44ED /* TVAPIClient.swift in Sources */,
+				F06CF183234C32F7000E80EA /* EpisodeCollectionViewCell.swift in Sources */,
 				F092588421ADC37400E1F139 /* TVShow.swift in Sources */,
 				F092589521BAFF5100E1F139 /* TopRatedShowsViewController.swift in Sources */,
 				F072432B21E3D29600865823 /* DiscoverViewController.swift in Sources */,

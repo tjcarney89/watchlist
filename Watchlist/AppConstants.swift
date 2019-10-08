@@ -17,6 +17,7 @@ let baseImageURL = "https://image.tmdb.org/t/p/original/"
 struct WatchlistColors {
     
     static let green = UIColor(red: 57/255, green: 158/255, blue: 90/255, alpha: 1.0)
+    static let red = UIColor(red: 226/255, green: 56/255, blue: 56/255, alpha: 1.0)
 }
     
 
